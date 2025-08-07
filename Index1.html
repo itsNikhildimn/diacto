@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power BI Consulting | Diacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="style.css"> -->
+   <style>
+    /* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url(./assets/images/business-analyst-use.webp) no-repeat center center/cover;
+  /* background: url(); */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  padding: 60px 20px;
+  min-height: calc(100vh - 100px); /* Assuming navbar is 80px */
+
+}
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.hero-text {
+  flex: 1 1 55%;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Form Section */
+.hero-form {
+  flex: 1 1 35%;
+  background: linear-gradient(145deg, #ffffff, #f6f9ff);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  animation: formFloat 6s ease-in-out infinite;
+  color: #2c3e50;
+}
+
+@keyframes formFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.hero-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+  color: #1c2530;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.hero-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-form input,
+.hero-form textarea {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  background: #fff;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+  color: #333;
+  font-family: inherit;
+}
+
+.hero-form input::placeholder,
+.hero-form textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.hero-form input:focus,
+.hero-form textarea:focus {
+  outline: none;
+  border-color: goldenrod;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.15);
+}
+
+/* Submit Button */
+.hero-form button {
+  padding: 14px;
+  background: linear-gradient(135deg, goldenrod, #f7c942);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 12px rgba(218, 165, 32, 0.3);
+  font-family: inherit;
+}
+
+.hero-form button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: 1;
+}
+
+.hero-form button:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.hero-form button:hover {
+  background: linear-gradient(135deg, #e0aa00, #ffda6b);
+  box-shadow: 0 8px 20px rgba(218, 165, 32, 0.5);
+  transform: translateY(-2px);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  .hero-text{
+    flex: 1 1 100%;
+  }
+  .hero-form {
+    flex: 100%;
+    width: 100%;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+}
+/* Container Setup */
+.services-section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Section Heading */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #111;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 800px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* Card Styling */
+.service-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,255,0.8));
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgb(255, 224, 146);
+  overflow: hidden;
+  animation: floatCard 5s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(255, 223, 120, 0.2);
+  }
+  50% {
+    box-shadow: 0 12px 28px rgba(255, 196, 0, 0.3);
+  }
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border: 1px solid goldenrod;
+}
+
+.service-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Tags */
+.tags {
+  margin-top: auto;
+}
+
+.tags span {
+  display: inline-block;
+  background-color: #f0f3f9;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  margin: 4px 4px 0 0;
+  border-radius: 20px;
+  border: 1px solid rgb(255, 226, 154);
+}
+
+/* Media Queries for Smaller Devices */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .tags span {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+.why-choose-section {
+  padding: 50px 20px;
+  background: #000000;
+}
+
+.why-choose-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.why-choose-heading {
+  margin-bottom: 30px;
+}
+
+.why-choose-heading h2 {
+  /* font-size: 24px;
+  font-weight: 700; */
+  color: #fff;
+}
+
+.why-choose-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid goldenrod;
+  border-radius: 8px;
+  padding: 15px;
+  gap: 15px;
+  background: #fff;
+  transition: all 0.4s ease;
+  min-height: 130px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+  /* Animation added */
+  animation: floatCard 5s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+}
+
+/* Glow animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+  }
+}
+
+/* Float animation */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Shimmer on hover */
+.feature-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.feature-box:hover::before {
+  left: 125%;
+}
+
+/* Slight zoom on hover */
+.feature-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 26px rgba(255, 193, 7, 0.25);
+  z-index: 2;
+}
+
+/* .feature-box:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+} */
+
+.feature-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.feature-box h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feature-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.testimonial-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.section-title .dot {
+  color: #f15a29;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.testimonial-card {
+  min-width: 100%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.quote {
+  font-size: 3rem;
+  color: #f15a29;
+  margin: 0;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 20px 0;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.author-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #f15a29;
+}
+
+.author-info span {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.testimonial-nav {
+  position: relative;
+  top: 50%;
+  /* left: 350px; */
+  transform: translateY(-50%);
+  background: #D09703;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.3s ease;
+}
+
+.testimonial-nav:hover {
+  background: #D09703;
+}
+
+.testimonial-nav.left {
+  /* left: -0px; */
+  /* position: relative; */
+  /* z-index: 1000; */
+}
+
+.testimonial-nav.right {
+  /* right: 50px; */
+}
+
+/* Sticky Buttons */
+.sticky-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.sticky-btn {
+  background: #f15a29;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sticky-btn.secondary {
+  background: #2c3e50;
+}
+
+.sticky-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .testimonial-card {
+    padding: 20px;
+  }
+  .why-choose-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 20px;
+}
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .quote {
+    font-size: 2rem;
+  }
+
+  .sticky-buttons {
+    right: 10px;
+    bottom: 15px;
+  }
+
+  .sticky-btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Fullscreen Overlay */
+/* Container */
+/* Container */
+#popupFormContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Important for full height */
+  display: none; /* Will be shown via JS */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Form Box */
+.popup-form-box {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close Button */
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Title */
+.popup-form-title {
+  font-size: 22px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Input Fields */
+.popup-form-inner input,
+.popup-form-inner textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: none;
+}
+
+/* Submit Button */
+.popup-form-inner button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #f15a29, #f7931e);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-form-inner button:hover {
+  background: linear-gradient(to right, #f7931e, #f15a29);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 480px) {
+  #popupFormContainer {
+    padding: 10px;
+  }
+
+  .popup-form-box {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .popup-form-title {
+    font-size: 20px;
+  }
+}
+
+   </style>
+</head>
+<body>
+
+  <!-- Header / Logo -->
+  <header class="header">
+    <div class="container">
+      <img src="./assets/images/Diacto-Logo.webp" alt="Diacto Logo" class="logo">
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Turn Your Data Into Decisions – Effortlessly</h1>
+        <p>
+          Welcome to Diacto, your premier destination for leveraging Power BI to revolutionize data analytics and visualization. Our expertise enables businesses to extract actionable insights, fostering informed decision-making. 
+        </p>
+          <br>
+          <p>Our dedicated team provides comprehensive support throughout your Power BI journey, from consultation to customization, training, and ongoing assistance. We ensure you harness Power BI to its fullest potential, maximizing its benefits for your organization.</p> 
+          <br>
+         <p> Partner with Diacto for a transformative data analytics experience, where Power BI serves as your trusted ally in achieving your objectives.           
+        </p>
+      </div>
+      <div class="hero-form">
+        <h3>Get in Touch</h3>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="text" name="company" placeholder="Company" />
+          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Offerings Section -->
+  <section class="services-section">
+    <div class="container">
+      <h2 class="section-title">Our Digital Transformation Services.</h2>
+      <p class="section-subtitle">
+        We provide full-stack digital transformation services and solutions – from strategic consulting to implementation.
+        Our expertise spans data analytics, AI, business intelligence, product development, and dedicated developer hiring.
+      </p>
+  
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card">
+          <div class="service-icon">☁️</div>
+          <h3>Data Analytics Consulting</h3>
+          <p>We help businesses leverage data for strategic decision-making by designing robust data architectures, governance models, and analytics frameworks.</p>
+          <div class="tags">
+            <span>Data Analytics Implementation</span>
+            <span>Data Strategy and Roadmaps</span>
+          </div>
+        </div>
+  
+        <!-- Service Card 2 -->
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Artificial Intelligence Consulting</h3>
+          <p>We build cutting-edge AI solutions to automate workflows, enhance decision-making, and optimize processes using ML, Generative AI, and Predictive Analytics.</p>
+          <div class="tags">
+            <span>AI Deployment & MLOps</span>
+            <span>AI & ML Solutions</span>
+          </div>
+        </div>
+  
+        <!-- Service Card 3 -->
+        <div class="service-card">
+          <div class="service-icon">👨‍💻</div>
+          <h3>Product Engineering & Software Development</h3>
+          <p>We build custom AI-powered applications and scalable software solutions using modern frameworks and cloud infrastructure.</p>
+          <div class="tags">
+            <span>Python MVP Development</span>
+            <span>Angular Development</span>
+          </div>
+        </div>
+  
+        <!-- Service Card 4 -->
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Business Intelligence</h3>
+          <p>Empowering organizations with interactive dashboards, self-service analytics, and automated reporting for real-time insights.</p>
+          <div class="tags">
+            <span>Embedded BI & Self Analytics</span>
+            <span>Power BI & Tableau Deployment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose Diacto Section -->
+  <section class="why-choose-section">
+    <div class="why-choose-container">
+      <!-- <div class="why-choose-heading">
+        <h2>Why Choose HashStudioz for Power BI Analytics Services?</h2>
+      </div> -->
+      <div class="why-choose-features">
+        <div class="why-choose-heading">
+         <h2 class="section-title" >Why Choose HashStudioz for Power BI Analytics Services?</p>
+        </div>
+        <div class="feature-box">
+          <img src="./assets/icons/develop_2503650.png" alt="Tailored Solutions">
+          <div>
+            <h4>Tailored Solutions</h4>
+            <p>Custom dashboards and analytics tailored to your business goals.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <img src="./assets/icons/Expert Consultants.png" alt="Expert Consultants">
+          <div>
+            <h4>Expert Consultants</h4>
+            <p>Certified Power BI professionals with years of experience.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <img src="./assets/icons/analysis_10842667.png" alt="Proven Track Record">
+          <div>
+            <h4>Proven Track Record</h4>
+            <p>Successfully delivered Power BI projects across industries.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <img src="./assets/icons/clipboard_8756460.png" alt="Cost-Effective Services">
+          <div>
+            <h4>Cost-Effective Services</h4>
+            <p>Competitive pricing without compromising quality.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <img src="./assets/icons/More Value.png" alt="More Value">
+          <div>
+            <h4>More Value</h4>
+            <p>Get insights that drive business outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <!-- Tools We Expertise In -->
+  <section class="testimonial-section">
+    <h2 class="section-title">Proof Over Promises<span class="dot">.</span></h2>
+    <p class="subtitle">
+      Our clients speak for us. These testimonials showcase the trust we’ve earned and the results we’ve delivered, time and again.
+    </p>
+    <button class="testimonial-nav left">&#8592;</button>
+    <button class="testimonial-nav right">&#8594;</button>
+  
+    
+    <div class="testimonial-slider">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <p class="quote">“</p>
+          <p class="testimonial-text">
+            Algoscale's team has empowered Perceptronix Limited and our clients with innovative solutions. Their knowledge, professionalism, and impressive project management have left a lasting impression.
+          </p>
+          <div class="author-info">
+            <img src="https://i.pravatar.cc/50?img=3" alt="Dr. John Tepper">
+            <div>
+              <strong>Dr. John Tepper</strong><br>
+              <span>Director, Perceptronix Limited</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“</p>
+          <p class="testimonial-text">
+            Their approach is detail-oriented and highly professional. We’ve seen measurable growth and success with Algoscale’s solutions.
+          </p>
+          <div class="author-info">
+            <img src="https://i.pravatar.cc/50?img=4" alt="Jane Smith">
+            <div>
+              <strong>Jane Smith</strong><br>
+              <span>COO, DataInsight Corp</span>
+            </div>
+          </div>
+        </div>
+        <!-- Add more testimonial-card divs here -->
+      </div>
+
+    </div>
+  </section>
+  
+<!-- Popup Form Container -->
+<div id="popupFormContainer">
+  <div class="popup-form-box">
+    <button class="popup-close-btn" onclick="closePopupForm()">×</button>
+    <h3 class="popup-form-title">Get in Touch</h3>
+    <form class="popup-form-inner">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="tel" placeholder="Your Phone Number" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+  <!-- Footer -->
+
+  <script>
+    const track = document.getElementById('testimonialTrack');
+    const leftBtn = document.querySelector('.testimonial-nav.left');
+    const rightBtn = document.querySelector('.testimonial-nav.right');
+    const totalSlides = track.children.length;
+    let currentSlide = 0;
+  
+    function showSlide(index) {
+      const offset = index * -100;
+      track.style.transform = `translateX(${offset}%)`;
+    }
+  
+    leftBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    });
+  
+    rightBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    });
+  
+    // Autoplay
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }, 5000);
+  </script>
+  
+  <script>
+    let popupFormShown = false;
+  
+    function showPopupForm() {
+      if (!popupFormShown) {
+        document.getElementById('popupFormContainer').style.display = 'flex';
+        popupFormShown = true;
+      }
+    }
+  
+    function closePopupForm() {
+      document.getElementById('popupFormContainer').style.display = 'none';
+    }
+  
+    window.addEventListener('scroll', function () {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+  
+      if (scrollPosition >= scrollHeight / 2) {
+        showPopupForm();
+      }
+    });
+  </script>
+  
+</body>
+</html>
