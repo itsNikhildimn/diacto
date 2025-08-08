@@ -4,8 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Power BI Consulting | Diacto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- <link rel="stylesheet" href="style.css"> -->
    <style>
     /* Reset and Base */
@@ -15,7 +24,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Hero Section */
@@ -121,7 +130,7 @@ body {
 /* Submit Button */
 .hero-form button {
   padding: 14px;
-  background: linear-gradient(135deg, goldenrod, #f7c942);
+  background: linear-gradient(135deg, #33363B, #AB8942);
   color: #fff;
   font-size: 1.1rem;
   font-weight: 600;
@@ -155,7 +164,7 @@ body {
 }
 
 .hero-form button:hover {
-  background: linear-gradient(135deg, #e0aa00, #ffda6b);
+  background: linear-gradient(135deg,  #AB8942,  #33363B);
   box-shadow: 0 8px 20px rgba(218, 165, 32, 0.5);
   transform: translateY(-2px);
 }
@@ -199,7 +208,7 @@ body {
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #555;
+  color: #000000;
   margin-bottom: 40px;
   max-width: 800px;
   text-align: center;
@@ -266,7 +275,7 @@ body {
 
 .service-card p {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -432,14 +441,14 @@ body {
 }
 
 .feature-box p {
-  margin: 0;
-  font-size: 14px;
-  color: #555;
+  font-size: 1rem;
+  color: #000000;
+  margin-bottom: 20px;
 }
 
 .testimonial-section {
   padding: 60px 20px;
-  background: #f9f9f9;
+  background: #000000;
   text-align: center;
   position: relative;
 }
@@ -447,11 +456,11 @@ body {
 .section-title {
   font-size: 2.2rem;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .section-title .dot {
-  color: #f15a29;
+  color:  #AB8942;
 }
 
 .subtitle {
@@ -465,6 +474,7 @@ body {
   overflow: hidden;
   max-width: 800px;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 .testimonial-track {
@@ -483,7 +493,7 @@ body {
 
 .quote {
   font-size: 3rem;
-  color: #f15a29;
+  color:  #AB8942;
   margin: 0;
 }
 
@@ -506,7 +516,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 3px solid #f15a29;
+  border: 3px solid  #AB8942;
 }
 
 .author-info span {
@@ -546,35 +556,42 @@ body {
 }
 
 /* Sticky Buttons */
+/* Sticky Button Container */
 .sticky-buttons {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  top: 20%;
+  right: 15px; /* adjust based on button width */
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  z-index: 999;
+  gap: 200px;
+  z-index: 9999;
 }
 
-.sticky-btn {
-  background: #f15a29;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
+.cta-book-demo,
+.cta-free-consult {
+  background-color:#AB8942;
+  color:   #ffffff;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 14px;
   font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease;
-  font-family: 'Poppins', sans-serif;
+  border-radius: 6px 6px 0 0;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  
+  transform: rotate(-90deg);
+  transform-origin: right center;
 }
 
-.sticky-btn.secondary {
-  background: #2c3e50;
+.cta-book-demo:hover,
+.cta-free-consult:hover {
+  background-color: #33363B;
+  transform: rotate(-90deg) translateY(-5px);
 }
 
-.sticky-btn:hover {
-  opacity: 0.9;
-}
+
 
 /* Responsive */
 @media (max-width: 600px) {
@@ -604,7 +621,6 @@ body {
     font-size: 0.9rem;
   }
 }
-sd
 /* Fullscreen Overlay */
 /* Container */
 /* Container */
@@ -670,9 +686,12 @@ sd
 
 /* Submit Button */
 .popup-form-inner button {
+ 
+  font-family: 'Montserrat', sans-serif;
+
   width: 100%;
   padding: 12px;
-  background: linear-gradient(to right, #f15a29, #f7931e);
+  background: linear-gradient(to right, #AB8942, #33363B);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -683,7 +702,7 @@ sd
 }
 
 .popup-form-inner button:hover {
-  background: linear-gradient(to right, #f7931e, #f15a29);
+  background: linear-gradient(to right, #AB8942,  #AB8942);
 }
 
 /* Animation */
@@ -714,6 +733,200 @@ sd
   }
 }
 
+        .tools-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .tools-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .underline {
+      width: 80px;
+      height: 3px;
+      background-color: goldenrod;
+      margin: 0 auto 40px;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-bottom: 40px;
+    }
+
+    .swiper-slide {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-slide:hover {
+      transform: translateY(-5px);
+    }
+
+    .logo-img {
+      max-width: 100px;
+      margin: 0 auto 15px;
+    }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* Navigation buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #000;
+    }
+    .te-section {
+  text-align: center;
+  overflow: hidden;
+}
+
+.te-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.te-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #d4a949;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Marquee Styles */
+.te-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.te-marquee {
+  display: flex;
+  width: fit-content;
+  animation: te-scroll 20s linear infinite;
+}
+
+.te-slide {
+  flex: 0 0 auto;
+  width: 250px;
+  margin: 0 15px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.te-slide:hover {
+  transform: translateY(-5px);
+}
+
+.te-slide img {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.te-slide p {
+  font-size: 1rem;
+  color: #333;
+}
+
+@keyframes te-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .te-slide {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .te-slide {
+    width: 180px;
+  }
+}
+.owl-carousel.version-1, .owl-carousel.version-2{
+  position: relative;
+  padding: 15px 35px 0;
+}
+.logo-slider-1, .logo-slider-2{
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto 40px;
+  text-align: center;
+  padding: 50px 0;
+}
+.owl-carousel .owl-item {
+    background: #fff;
+    padding: 0 20px;
+}
+.owl-carousel .card{
+  padding: 20px;
+  
+  box-shadow: 0 12px 26px rgba(255, 193, 7, 0.25);
+  border: 1px solid rgb(255, 226, 154);
+  border-radius: 10px;
+}
+.owl-carousel  img{
+  height: 100px;
+  object-fit: contain;
+}
+.owl-nav button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background: #fff !important;
+    border-radius: 50%;
+    margin: auto 0;
+    box-shadow: 0px 0px 5px #00000069;
+}
+.owl-nav button.owl-next{
+  right: 0;
+}
+.owl-nav button.owl-prev{
+  left: 0;
+}
+.version-2 h2 {
+    margin: 0px;
+    font-size: 20px;
+}
+.version-2 p {
+    font-size: 15px;
+}
+.version-2 .owl-item{
+  text-align: center;
+  padding: 10px 20px 20px;
+}
+.version-2 .owl-item img{
+  width: 160px;
+  margin: 0 auto;
+}
    </style>
 </head>
 <body>
@@ -756,7 +969,8 @@ sd
   <!-- Our Offerings Section -->
   <section class="services-section">
     <div class="container">
-      <h2 class="section-title">Our Digital Transformation Services.</h2>
+      <h2 class="section-title" style="color: #000;">Power BI Services That Cover Every Data Need.
+      </h2>
       <p class="section-subtitle">
         We provide full-stack digital transformation services and solutions – from strategic consulting to implementation.
         Our expertise spans data analytics, AI, business intelligence, product development, and dedicated developer hiring.
@@ -766,46 +980,56 @@ sd
         <!-- Service Card 1 -->
         <div class="service-card">
           <div class="service-icon">☁️</div>
-          <h3>Data Analytics Consulting</h3>
-          <p>We help businesses leverage data for strategic decision-making by designing robust data architectures, governance models, and analytics frameworks.</p>
-          <div class="tags">
+          <h3>Data Connection</h3>
+          <p>Diacto excels in seamlessly integrating data from diverse sources into Power BI, ensuring your analytics are based on comprehensive and accurate data. Whether your data is in databases, cloud platforms, or spreadsheets, we enable smooth connectivity to Power BI, empowering insightful analysis and decision-making</p>
+          <!-- <div class="tags">
             <span>Data Analytics Implementation</span>
             <span>Data Strategy and Roadmaps</span>
-          </div>
+          </div> -->
         </div>
   
         <!-- Service Card 2 -->
         <div class="service-card">
           <div class="service-icon">✨</div>
-          <h3>Artificial Intelligence Consulting</h3>
-          <p>We build cutting-edge AI solutions to automate workflows, enhance decision-making, and optimize processes using ML, Generative AI, and Predictive Analytics.</p>
-          <div class="tags">
+          <h3>Data Transformation</h3>
+          <p>With expertise in ETL methods like Power Query, SQL Server, and Azure Data Factory, we transform raw data into actionable insights for Power BI. By cleaning, structuring, and enriching data, we ensure analytics rely on high-quality, standardized data, unlocking its full potential</p>
+          <!-- <div class="tags">
             <span>AI Deployment & MLOps</span>
             <span>AI & ML Solutions</span>
-          </div>
+          </div> -->
         </div>
   
         <!-- Service Card 3 -->
         <div class="service-card">
           <div class="service-icon">👨‍💻</div>
-          <h3>Product Engineering & Software Development</h3>
-          <p>We build custom AI-powered applications and scalable software solutions using modern frameworks and cloud infrastructure.</p>
-          <div class="tags">
+          <h3>Data Visualization</h3>
+          <p>At Diacto, we understand the importance of user-friendly data visualizations in driving understanding and decision-making. Leveraging our UI/UX expertise, we design dynamic visualizations tailored to your users’ needs, enabling stakeholders to derive actionable insights at a glance</p>
+          <!-- <div class="tags">
             <span>Python MVP Development</span>
             <span>Angular Development</span>
-          </div>
+          </div> -->
         </div>
   
         <!-- Service Card 4 -->
         <div class="service-card">
           <div class="service-icon">📊</div>
-          <h3>Business Intelligence</h3>
-          <p>Empowering organizations with interactive dashboards, self-service analytics, and automated reporting for real-time insights.</p>
-          <div class="tags">
+          <h3>Data Architecture</h3>
+          <p>Our team excels in designing robust and scalable data architectures for effective data management and analytics in Power BI. We work closely with your organization to understand your unique data requirements, crafting architectures that optimize storage, processing, and retrieval. By implementing best practices, we ensure your architecture is flexible, efficient, and supports evolving business needs</p>
+          <!-- <div class="tags">
             <span>Embedded BI & Self Analytics</span>
             <span>Power BI & Tableau Deployment</span>
-          </div>
+          </div> -->
         </div>
+        
+      </div>
+      <div class="service-card" style="margin-top: 30px;max-width: 700px; margin-inline: auto;">
+        <div class="service-icon">📊</div>
+        <h3>User Training & Documentation</h3>
+        <p>Recognizing that successful adoption of Power BI requires more than just technical implementation, we provide comprehensive user training and documentation. Our role-based sessions empower users with the knowledge and skills to effectively utilize Power BI for their roles. Additionally, detailed documentation serves as a valuable resource for ongoing reference, ensuring your team remains proficient in leveraging Power BI fully</p>
+        <!-- <div class="tags">
+          <span>Embedded BI & Self Analytics</span>
+          <span>Power BI & Tableau Deployment</span>
+        </div> -->
       </div>
     </div>
   </section>
@@ -818,53 +1042,68 @@ sd
       </div> -->
       <div class="why-choose-features">
         <div class="why-choose-heading">
-         <h2 class="section-title" >Why Choose HashStudioz for Power BI Analytics Services?</p>
+         <h2 class="section-title" style="text-align: left;">Why Leading Businesses Trust Diacto
+        </p>
         </div>
         <div class="feature-box">
           <img src="./assets/icons/develop_2503650.png" alt="Tailored Solutions">
           <div>
-            <h4>Tailored Solutions</h4>
-            <p>Custom dashboards and analytics tailored to your business goals.</p>
+            <h4>Implementation Speed</h4>
+            <p>Leverage our expertise in implementing data strategies to kickstart your journey swiftly, ensuring a rapid start within weeks.</p>
           </div>
         </div>
         <div class="feature-box">
           <img src="./assets/icons/Expert Consultants.png" alt="Expert Consultants">
           <div>
-            <h4>Expert Consultants</h4>
-            <p>Certified Power BI professionals with years of experience.</p>
+            <h4>Cost-effective</h4>
+            <p>Optimize your budget with our cost-effective data strategy solutions, tailored to seamlessly integrate with your existing systems.</p>
           </div>
         </div>
         <div class="feature-box">
           <img src="./assets/icons/analysis_10842667.png" alt="Proven Track Record">
           <div>
-            <h4>Proven Track Record</h4>
-            <p>Successfully delivered Power BI projects across industries.</p>
+            <h4>Unmatched Support</h4>
+            <p>Benefit from unparalleled customer support throughout your data strategy journey, ensuring valuable insights and assistance every step of the way.</p>
           </div>
         </div>
         <div class="feature-box">
           <img src="./assets/icons/clipboard_8756460.png" alt="Cost-Effective Services">
           <div>
-            <h4>Cost-Effective Services</h4>
-            <p>Competitive pricing without compromising quality.</p>
+            <h4>Scalability</h4>
+            <p>Experience seamless scalability with our customized approach, ensuring your data strategy evolves alongside your expanding operations.</p>
           </div>
         </div>
         <div class="feature-box">
           <img src="./assets/icons/More Value.png" alt="More Value">
           <div>
-            <h4>More Value</h4>
-            <p>Get insights that drive business outcomes.</p>
+            <h4>Responsibility</h4>
+            <p>We take responsibility for our actions and their impact on stakeholders, including employees, customers, the community, and the environment.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
-  
+
+  <div class="logo-slider-1">
+    <h2 class="section-title" style="color: #000000;">Tools Expertise</h2>
+    <br>
+    <div class="owl-carousel version-1">
+      <div class="card"> <img src="./assets/icons/TABLEAU.svg"> </div>
+      <div class="card"> <img src="./assets/icons/Snowflake_Logo.webp"> </div>
+      <div class="card"> <img src="./assets/icons/qlik-logo.webp"> </div>
+      <div class="card"> <img src="./assets/icons/PowerBI.svg"> </div>
+      <div class="card"> <img src="./assets/icons/DOMO-1-1.webp"> </div>
+      <div class="card"> <img src="./assets/icons/BigQuery-Logo.jpg"> </div>
+      <div class="card"> <img src="./assets/icons/azure-synapse-logo.webp"> </div>
+      <div class="card"> <img src="./assets/icons/Azure-Data-Lake.webp"> </div>
+      <div class="card"> <img src="./assets/icons/Azure-data-factory.webp"> </div>
+    </div>
+  </div>
   
   <!-- Tools We Expertise In -->
   <section class="testimonial-section">
     <h2 class="section-title">Proof Over Promises<span class="dot">.</span></h2>
-    <p class="subtitle">
+    <p class="subtitle" style="color: #ffffff;">
       Our clients speak for us. These testimonials showcase the trust we’ve earned and the results we’ve delivered, time and again.
     </p>
     <button class="testimonial-nav left">&#8592;</button>
@@ -909,7 +1148,7 @@ sd
 <div id="popupFormContainer">
   <div class="popup-form-box">
     <button class="popup-close-btn" onclick="closePopupForm()">×</button>
-    <h3 class="popup-form-title">Get in Touch</h3>
+    <h3 class="popup-form-title section-title" style="color: #000000; font-size: 34px;">Get in Touch</h3>
     <form class="popup-form-inner">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
@@ -920,7 +1159,12 @@ sd
   </div>
 </div>
   <!-- Footer -->
+  <div class="sticky-buttons">
+    <a href="javascript:void(0)" class="cta-book-demo" onclick="popupOpen()">📅 Book Your Free Demo</a>
 
+    <a href="#free-consultation" class="cta-free-consult" onclick="popupOpen()">💬 Get A Free Consultation</a>
+  </div>
+  
   <script>
     const track = document.getElementById('testimonialTrack');
     const leftBtn = document.querySelector('.testimonial-nav.left');
@@ -952,27 +1196,67 @@ sd
   
   <script>
     let popupFormShown = false;
+    let popupManuallyClosed = false;
   
-    function showPopupForm() {
-      if (!popupFormShown) {
-        document.getElementById('popupFormContainer').style.display = 'flex';
+    // ✅ Function to open popup on button click
+    function popupOpen() {
+      const popup = document.getElementById('popupFormContainer');
+      if (popup) {
+        popup.style.display = 'flex';
         popupFormShown = true;
+        popupManuallyClosed = false; // Reset manual close status
       }
     }
   
-    function closePopupForm() {
-      document.getElementById('popupFormContainer').style.display = 'none';
+    // ✅ Function to close popup
+    window.closePopupForm = function () {
+      const popup = document.getElementById('popupFormContainer');
+      if (popup) {
+        popup.style.display = 'none';
+        popupFormShown = false;
+        popupManuallyClosed = true; // Prevent scroll-triggered popup
+      }
     }
   
+    // ✅ Optional: Show on scroll only once
     window.addEventListener('scroll', function () {
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollPosition = window.scrollY + window.innerHeight;
   
-      if (scrollPosition >= scrollHeight / 2) {
-        showPopupForm();
+      if (scrollPosition >= scrollHeight / 2 && !popupFormShown && !popupManuallyClosed) {
+        popupOpen();
       }
     });
   </script>
+  
+  
+<script>
+ // Slider version 1
+ $('.owl-carousel.version-1').owlCarousel({
+    loop: true,
+    margin: 15,
+    responsiveClass: true,
+    autoplay: true, // ✅ Enables auto scroll
+    autoplayTimeout: 2000, // ✅ Delay between scrolls (2 seconds)
+    autoplayHoverPause: true, // ✅ Pause on mouse hover
+    responsive: {
+        0: {
+            items: 2,
+            nav: true
+        },
+        600: {
+            items: 3,
+            nav: false
+        },
+        1000: {
+            items: 4,
+            nav: true
+        }
+    }
+});
+
+
+</script>
   
 </body>
 </html>
