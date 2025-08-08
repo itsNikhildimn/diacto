@@ -9,6 +9,7 @@
 <!-- Owl Carousel CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -446,115 +447,132 @@ body {
   margin-bottom: 20px;
 }
 
-.testimonial-section {
-  padding: 60px 20px;
-  background: #000000;
-  text-align: center;
-  position: relative;
+
+.testimonials-section {
+      /* max-width: 1200px; */
+      padding: 50px 0;
+      margin: auto;
+      text-align: center;
+      background-color: #000000;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .video-thumbnail img{
+      height: 200px;
+      object-fit: cover;
+    }
+    .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
 }
 
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #ffffff;
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.section-title .dot {
-  color:  #AB8942;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-.testimonial-slider {
-  position: relative;
-  overflow: hidden;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 15px;
-}
-
-.testimonial-track {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .testimonial-card {
-  min-width: 100%;
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  text-align: left;
-}
-
-.quote {
-  font-size: 3rem;
-  color:  #AB8942;
-  margin: 0;
-}
-
-.testimonial-text {
-  font-size: 1.1rem;
-  color: #333;
-  margin: 20px 0;
-  font-style: italic;
-  line-height: 1.8;
-}
-
-.author-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.author-info img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 3px solid  #AB8942;
-}
-
-.author-info span {
-  color: #2c3e50;
-  font-weight: 600;
-}
-
-.testimonial-nav {
+  background: rgba(255, 255, 255, 0.1); /* Transparent white */
+  backdrop-filter: blur(15px); /* Glass blur */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Glass border */
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   position: relative;
-  top: 50%;
-  /* left: 350px; */
-  transform: translateY(-50%);
-  background: #D09703;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  z-index: 5;
-  transition: background 0.3s ease;
+  overflow: hidden;
 }
 
-.testimonial-nav:hover {
-  background: #D09703;
+/* Hover effect */
+.testimonial-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.testimonial-nav.left {
-  /* left: -0px; */
-  /* position: relative; */
-  /* z-index: 1000; */
+/* Optional glowing border animation */
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(130deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+  z-index: 0;
+  pointer-events: none;
 }
 
-.testimonial-nav.right {
-  /* right: 50px; */
+/* Ensure content is above glow */
+.testimonial-card * {
+  position: relative;
+  z-index: 1;
 }
 
+
+/* Glowing animation */
+@keyframes glow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Animation keyframes */
+@keyframes glow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    .video-thumbnail {
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-thumbnail img {
+      width: 100%;
+      display: block;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+
+    .testimonial-name {
+      color: #ffffff;
+      margin-top: 15px;
+      font-size: 16px;
+    }
 /* Sticky Buttons */
 /* Sticky Button Container */
 .sticky-buttons {
@@ -1101,48 +1119,85 @@ body {
   </div>
   
   <!-- Tools We Expertise In -->
-  <section class="testimonial-section">
+  <!-- <section class="testimonial-section">
     <h2 class="section-title">Proof Over Promises<span class="dot">.</span></h2>
     <p class="subtitle" style="color: #ffffff;">
       Our clients speak for us. These testimonials showcase the trust we’ve earned and the results we’ve delivered, time and again.
     </p>
     <button class="testimonial-nav left">&#8592;</button>
-    <button class="testimonial-nav right">&#8594;</button>
+    <button class="testimonial-nav right">&#8594;</button> -->
   
     
-    <div class="testimonial-slider">
-      <div class="testimonial-track" id="testimonialTrack">
-        <div class="testimonial-card">
-          <p class="quote">“</p>
-          <p class="testimonial-text">
-            Algoscale's team has empowered Perceptronix Limited and our clients with innovative solutions. Their knowledge, professionalism, and impressive project management have left a lasting impression.
-          </p>
-          <div class="author-info">
-            <img src="https://i.pravatar.cc/50?img=3" alt="Dr. John Tepper">
-            <div>
-              <strong>Dr. John Tepper</strong><br>
-              <span>Director, Perceptronix Limited</span>
+    <section class="testimonials-section">
+      <div class="container">
+      <h2 class="section-title" style="color: #fff;">What Our Clients Say</h2>
+      <div class="testimonials-grid">
+    
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/noljy0bHfBg" class="glightbox" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2025/02/Nick-testimony.png" alt="Nick Jewitt">
+              <span class="play-icon">▶</span>
             </div>
-          </div>
+          </a>
+          <p class="testimonial-name"><strong>Nick Jewitt</strong>, Head of Data Insights, Harcourts</p>
         </div>
-        <div class="testimonial-card">
-          <p class="quote">“</p>
-          <p class="testimonial-text">
-            Their approach is detail-oriented and highly professional. We’ve seen measurable growth and success with Algoscale’s solutions.
-          </p>
-          <div class="author-info">
-            <img src="https://i.pravatar.cc/50?img=4" alt="Jane Smith">
-            <div>
-              <strong>Jane Smith</strong><br>
-              <span>COO, DataInsight Corp</span>
+    
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/VQ5PeBqjwOY" class="glightbox" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2024/03/Screenshot-36.png" alt="Thomas Orlowski">
+              <span class="play-icon">▶</span>
             </div>
-          </div>
+          </a>
+          <p class="testimonial-name"><strong>Thomas Orlowski</strong>, Director of Applications and Analytics, Whirlpool</p>
         </div>
-        <!-- Add more testimonial-card divs here -->
-      </div>
-
-    </div>
-  </section>
+    
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/FuwmSSYS0wc" class="glightbox" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2022/03/fvAFYHPVq0-HD.jpg" alt="Aukje">
+              <span class="play-icon">▶</span>
+            </div>
+          </a>
+          <p class="testimonial-name"><strong>Aukje</strong>, Manager, Data & Analytics, Clayco</p>
+        </div>
+    
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/alaxxzMaQms" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2022/03/WRokP61cJnA-HD.jpg" alt="Todd Finders">
+              <span class="play-icon">▶</span>
+            </div>
+          </a>
+          <p class="testimonial-name"><strong>Todd Finders</strong>, CIO, Barry-Wehmiller</p>
+        </div>
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/mg5HFjjmUIM" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2022/04/mg5HFjjmUIM-HD.jpg">
+              <span class="play-icon">▶</span>
+            </div>
+          </a>
+          <p class="testimonial-name"><strong>Mike Kiefer</strong>, CFO, Afinitas</p>
+        </div>
+        <div class="testimonial-card fade-in">
+          <a href="https://youtu.be/R5ct8DcC2iI" data-type="video">
+            <div class="video-thumbnail">
+              <img src="https://www.diacto.com/wp-content/uploads/2023/03/art_gabbard.webp">
+              <span class="play-icon">▶</span>
+            </div>
+          </a>
+          <p class="testimonial-name"><strong>Art Gabbard</strong>, Head of IT - Western States</p>
+        </div>
+    
+      </div></div>
+    </section>
+    
   
 <!-- Popup Form Container -->
 <div id="popupFormContainer">
@@ -1257,6 +1312,11 @@ body {
 
 
 </script>
-  
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
 </body>
 </html>
